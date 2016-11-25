@@ -9,12 +9,12 @@ Supported variables:
 - flash_query: The query in the form of text seperated by comma character (,) (e.g antarctica, funny, feathers)
 - method: 
  - flash_set_rules: Stores the Common Knowledge rules for flash in the form of text and returns a domain_id
- - flash_run_query: Runs a query against the Common Knowledge rules stored previously in flash database(domain_id). It returns back a json string containing 3 properties (graph,trace,output).
-  - graph: <Incomplete>
-  - trace: <Incomplete>
+ - flash_run_query: Runs a query against the Common Knowledge rules stored previously in flash database(domain_id). It returns back a json string containing 3 properties (graph,trace,output):
+  - graph: *Documentation Incomplete*
+  - trace: *Documentation Incomplete*
   - output: Raw output of the prolog interpreter
  
- A complete example is presented in the file index.html using html5 and javascript (JQUERY Framework).
+ A complete example is presented in the file index.html using html5 and javascript (JQUERY Framework). Another example of using the webservice can be found in: http://cognition-srv1.ouc.ac.cy/flash_demo
  
  ## Flash_run_query output in JSON format
  ```
