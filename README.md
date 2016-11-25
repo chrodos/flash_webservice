@@ -1,9 +1,6 @@
 # Flash Webservice
-In this page you will find instructions on how to use the Web service for the FLASH reasoning engine
 
-First you need to obtain an API key by sending an email to christos.rodosthenous at ouc dot ac dot cy
-
-Then, you can call the api by accessing this address: http://cognition-srv1.ouc.ac.cy/smart_corpus_builder/ws2/api.php
+In this page you will find instructions on how to use the Web service for the FLASH reasoning engine. First you need to obtain an API key by sending an email to christos.rodosthenous at ouc dot ac dot cy. Then, you can call the api by accessing this address: http://cognition-srv1.ouc.ac.cy/smart_corpus_builder/ws2/api.php
 
 Supported variables:
 - api: The unique key assigned to you for using this webservice
@@ -12,8 +9,14 @@ Supported variables:
 - flash_query: The query in the form of text seperated by comma character (,) (e.g antarctica, funny, feathers)
 - method: 
  - flash_set_rules: Stores the Common Knowledge rules for flash in the form of text and returns a domain_id
- - flash_run_query: Runs a query against the Common Knowledge rules stored previously in flash database(domain_id). It returns back a json string containing 3 proprerties (graph,trace,output)
+ - flash_run_query: Runs a query against the Common Knowledge rules stored previously in flash database(domain_id). It returns back a json string containing 3 properties (graph,trace,output).
+  - graph: <Incomplete>
+  - trace: <Incomplete>
+  - output: Raw output of the prolog interpreter
  
+ A complete example is presented in the file index.html using html5 and javascript (JQUERY Framework).
+ 
+ ## Flash_run_query output in JSON format
  ```
  {
 	"graph": [{
