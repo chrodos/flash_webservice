@@ -10,8 +10,8 @@ Supported variables:
 - method: 
  - flash_set_rules: Stores the Common Knowledge rules for flash in the form of text and returns a domain_id
  - flash_run_query: Runs a query against the Common Knowledge rules stored previously in flash database(domain_id). It returns back a json string containing 3 properties (graph,trace,output):
-  - graph: *Documentation Incomplete*
-  - trace: *Documentation Incomplete*
+  - graph: Includes all Common Knowledge rules that are activated
+  - trace: The first element includes the query elements. The next elements are the rules and nodes activated.
   - output: Raw output of the prolog interpreter
  
  A complete example is presented in the file index.html using html5 and javascript (JQUERY Framework). Another example of using the webservice can be found in: http://cognition-srv1.ouc.ac.cy/flash_demo
