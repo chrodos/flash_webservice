@@ -15,7 +15,8 @@ Supported variables:
  - flash_run_query: Runs a query against the Common Knowledge rules stored previously in flash database(domain_id)
 
 example (using jquery):
-`$.ajax({
+```
+$.ajax({
             type: 'GET',
             url: 'http://cognition-srv1.ouc.ac.cy/smart_corpus_builder/ws2/api.php',
             data: {
@@ -29,5 +30,6 @@ example (using jquery):
 							//var allthedomain = $("#rules_flash").val();
 							var allthedomain = $("#rules_flash").val();
 							//alert(allthedomain);
-							document.getElementById('graphhere').id = 'cy';`
+							document.getElementById('graphhere').id = 'cy';
+							```
 
