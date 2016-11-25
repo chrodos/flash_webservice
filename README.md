@@ -23,13 +23,12 @@ $.ajax({
                 'api': '54606e96f52a19e5d2f2258c637d8e98',
                 'method': 'flash_set_rules',
                 'flash_rules': 'rule1 :: penguin implies -flying.'
-
             },
                          success: function (data) {
                             alert('Domain ID: '+data);
                          }
-							```
-
+			 });
+```
 ## Code example for querying the Common Knowledge rules database (using jquery framework):
 ```
 $.ajax({
@@ -39,9 +38,9 @@ $.ajax({
                 'api': '54606e96f52a19e5d2f2258c637d8e98',
                 'method': 'flash_query',
                 'flash_run_query': 'antarctica, funny, feathers'
-
             },
                          success: function (data) {
                             alert('Domain ID: '+data);
                          }
+			 });
 							```
