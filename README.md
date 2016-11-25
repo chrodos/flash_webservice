@@ -45,3 +45,4 @@ $.ajax({
                          }
 			 });
 ```
+**Note**: The api keys used in these examples are for demo purposes only (not working). You must obtain a unique api key to use this webservice.
