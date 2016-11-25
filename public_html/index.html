@@ -9,8 +9,113 @@ and open the template in the editor.
         <title>Flash webservice demo</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
     </head>
     <body>
-        <div>TODO write content</div>
+        <div id="page">
+
+
+            <div id="main">
+
+
+                <div class="main_body">
+                    <p> Common Knowledge and Query</p> 
+                    <p><button id="apicall" type="button">Set Domain</button></p>
+                    <p><button id="apicallq" type="button">Run Query</button></p>
+                </div>
+                <div class = "main_body">
+
+                    <form action="#">
+
+
+                        <fieldset>
+                            <legend>Common Knowledge</legend>
+                            Insert Rules:<br>
+                            <textarea id="rules_flash" name="background" rows='10' cols='120'>rule1 :: penguin implies -flying.
+rule2 :: bird implies flying.
+rule3 :: penguin implies bird.
+rule4 :: feathers implies bird.
+rule5 :: antarctica, bird, funny implies penguin.
+rule6 :: flying implies wings.
+rule7 :: -flying implies -feathers.
+rule1>>rule2.
+                            </textarea>
+                        </fieldset>
+                        <br>
+
+                        <fieldset>
+                            <legend>Query</legend>
+                            Insert Facts:<br>
+                            <textarea id="flash_query_string" name="observations" rows='5' cols='120'>antarctica, funny, feathers</textarea>
+                            <!--<input type="submit" value="Submit">-->
+                        </fieldset>	
+                    </form>	
+                </div>
+
+            </div>
+
+        </div>
+
+        <script>
+            $(document).ready(function () {
+                var apicall_remote = "http://cognition-srv1.ouc.ac.cy/smart_corpus_builder/ws2/api.php";
+
+
+                var api_call = apicall_remote;
+                $("#apicall").click(function () {
+                    $.ajax({
+                        type: 'GET',
+                        url: api_call,
+                        data: {
+                            'api': '54606e96f52a19e5d2f2258c637d8e98',
+                            'method': 'flash_set_rules',
+                            'flash_rules': $("#rules_flash").val()
+
+                        },
+                        beforeSend: function () {
+                            var allthedomain = $("#rules_flash").val();
+                            alert(allthedomain);
+                        },
+                        success: function (data) {
+                            $('#domain_id').val(data);
+                            alert("Domain ID: " + data);
+
+
+                        },
+                        fail: function () {
+                            alert("error");
+                        }});
+                });
+
+                $("#apicallq").click(function () {
+                    $.ajax({
+                        type: 'GET',
+                        url: api_call,
+                        data: {
+                            'api': '54606e96f52a19e5d2f2258c637d8e98',
+                            'method': 'flash_run_query',
+                            'domain_id': $('#domain_id').val(),
+                            'flash_query': $("#flash_query_string").val()
+                        },
+                        beforeSend: function () {
+                            alert($("#flash_query_string").val());
+                        },
+                        success: function (data) {
+                            //alert(data);
+                            $("#demo").html(data);
+                            //var apotelesma = JSON.parse(data);
+                            alert(data);
+
+
+                        },
+                        fail: function () {
+                            alert("error");
+                        }
+                    });
+                });
+            });
+        </script>
+        <input id="domain_id" type="hidden" value="" />
+
     </body>
 </html>
